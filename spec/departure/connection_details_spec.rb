@@ -72,8 +72,7 @@ describe Departure::ConnectionDetails do
     end
 
     context 'when the password contains bash incompatible characters' do
-      let(:env_var) { {} }
-      let(:connection_data) { { password: '!#/PASSWORD!!!' } }
+      let(:env_var) { { PERCONA_DB_PASSWORD: '!#/PASSWORD!!!' } }
       it { is_expected.to include('--password \!\#/PASSWORD\!\!\!') }
     end
   end
